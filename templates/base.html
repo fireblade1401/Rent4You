@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>RusRental</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="{% url 'index' %}" style="">
+            <span>
+              RusRental
+            </span>
+          </a>
+          {% if user.is_authenticated %}
+          <div class="log" style="margin-left: 1450px;">
+            <span style="font-size: 18px; color: white;"> Привет, {{ user.username }}!</span>
+            <a href="{% url 'logout' %}"
+               class="transparent-link"
+               style="color: white !important; text-decoration: none; margin-left: 10px;">
+              Выйти
+            </a>
+          </div>
+          {% else %}
+            <a style="margin-left: 1550px; padding-top: 10px; color: white; text-decoration: none;" href="{% url 'login' %}">Войти</a>
+          {% endif %}
+          <div class="navbar-collapse" id="">
+            <div class="custom_menu-btn">
+              <button onclick="openNav()" style="padding-bottom: 10px">
+                <span class="s-1"> </span>
+                <span class="s-2"> </span>
+                <span class="s-3"> </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="{% url 'index' %}">Главная</a>
+                <a href="{% url 'about' %}">О нас</a>
+                <a href="{% url 'cars' %}">Автомобили</a>
+                <a href="{% url 'blog' %}">Блог</a>
+                <a href="{% url 'contact' %}">Связаться с нами</a>
+
+                {% if user.is_authenticated %}
+                  <span style="font-size: 24px; color: white;"><a href="{% url 'profile' %}">Привет, {{ user.username }}!</a></span>
+                  <a href="{% url 'logout' %}">Выйти</a>
+                {% else %}
+                  <a href="{% url 'login' %}">Вход</a>
+                  <a href="{% url 'register' %}">Регистрация</a>
+                {% endif %}
+
+              </div>
+            </div>
+
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <div class="body-or-wrapper">
+    <div class="main-content">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+
+    <footer class="container-fluid footer_section">
+      <p>
+        Все права защищены &copy; 2023.
+        <a href="/">RusRental</a>
+      </p>
+    </footer>
+  </div>
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>

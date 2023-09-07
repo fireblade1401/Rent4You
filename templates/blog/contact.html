@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Для связи, заполните форму
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="form_container">
+              <form method="post" id="callbackForm">
+                {% csrf_token %}
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="inputName4" placeholder="Имя " name="{{ form.name.name }}">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="inputSubject4" placeholder="Телефон" name="{{ form.phone.name }}">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Почта" name="{{ form.email.name }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="inputMessage" placeholder="Ваше сообщение" name="{{ form.message.name }}">
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+      <div class="contact_items">
+          <a href="{{ buttons.GeoSrc }}">
+              <div class="img-box">
+                  <img src="{% static 'images/location.png' %}" alt="">
+              </div>
+              <h6>
+                  <p class="geo-location-text">Наше местоположение</p>
+              </h6>
+          </a>
+          <a href="tel:{{ buttons.PhoneTel }}">
+              <div class="img-box">
+                  <img src="{% static 'images/call.png' %}" alt="">
+              </div>
+              <h6>
+                  <p class="phone-text">{{ buttons.PhoneTel }}</p>
+              </h6>
+          </a>
+          <a href="mailto:{{ buttons.MailTo }}">
+              <div class="img-box">
+                  <img src="{% static 'images/mail.png' %}" alt="">
+              </div>
+              <h6>
+                  <p class="mail-text">{{ buttons.MailTo }}</p>
+              </h6>
+          </a>
+        </div>
+      <div class="social_container">
+        <div class="social-box">
+          <div>
+            <a href="https://vk.com/fireblade1401">
+              <i class="fab fa-vk"></i>
+            </a>
+          </div>
+          <div>
+            <a href="https://t.me/BlessedByFate">
+              <i class="fab fa-telegram-plane"></i>
+            </a>
+          </div>
+          <div>
+            <a href="https://github.com/fireblade1401">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div>
+            <a href="https://www.instagram.com/they_love_ruslan/">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="map_section">
+    <div class="map_container">
+      <div class="map-responsive">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.6997416759546!2d76.93019997669701!3d43.25771427791907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836ebb0253d67d%3A0xec194e160607bab8!2z0JzQsNC50YHQsNGC!5e0!3m2!1sru!2skz!4v1694006273443!5m2!1sru!2skz" width="600" height="300" frameborder="0" style="border:0; width: 100%; height:100%" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}

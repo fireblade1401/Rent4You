@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <!-- about section -->
+
+  <section class="about_section layout_padding-bottom">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-7 px-0">
+          <div class="img-box">
+            <img src="{% static 'images/about-img.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <div class="detail-box">
+            <h2>
+              История нашего успеха
+            </h2>
+            <p>
+              Начав с небольшого парка в 20 машин, наша компания выросла до одного из лидеров рынка аренды авто. Наш секрет - надежные машины и исключительный сервис.
+            </p>
+            <a href="{% url 'cars' %}">
+              Арендовать авто!
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}
+  <!-- end about section -->
+

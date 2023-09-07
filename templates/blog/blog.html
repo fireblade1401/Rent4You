@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="blog_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Наши новые Авто
+        </h2>
+        <p>
+          Блог с нашими новыми авто в наличии, которые вы можете арендовать.
+        </p>
+      </div>
+    </div>
+    <div class="blog_container">
+      <div class="layout_padding2-top">
+        <div class="carousel-wrap ">
+          <div class="owl-carousel">
+            {% for blog in blogs %}
+            <div class="item">
+                <div class="box">
+                  <a href="{% url 'cars' %}" style="text-decoration: none !important; color: inherit !important;">
+                    <div class="date-box">
+                      <h6>
+                        {{ blog.date }}
+                      </h6>
+                    </div>
+                    <div class="img-box">
+                      <img src="{{ blog.image.url }}" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h5>
+                        {{ blog.title }}
+                      </h5>
+                      <p>
+                        {{ blog.description }}
+                      </p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
