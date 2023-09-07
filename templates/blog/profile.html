@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2 class="centered-title">История аренды</h2>
+<h2 class="centered-title">История аренды</h2>
 
-    <div class="rental-container">
-        {% for rental in rentals %}
-            <div class="rental-card">
-                <img src="{{ rental.image.url }}" alt="{{ rental.mark.name }} {{ rental.model }}" class="rental-image">
-                <div class="rental-details">
-                    <h4 class="rental-title">{{ rental.mark.name }} {{ rental.model }}</h4>
-                    <p class="rental-date">Дата аренды: <span>{{ rental.rented_date }}</span></p>
-                </div>
+<div class="rental-container">
+    {% for rental in rentals %}
+        <div class="rental-card">
+            <img src="{{ rental.image.url }}" alt="{{ rental.mark.name }} {{ rental.model }}" class="rental-image">
+            <div class="rental-details">
+                <h4 class="rental-title">{{ rental.mark.name }} {{ rental.model }}</h4>
+                <p class="rental-date">Дата аренды: <span>{{ rental.rented_date }}</span></p>
             </div>
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
