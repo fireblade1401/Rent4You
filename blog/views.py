@@ -1,6 +1,8 @@
-# Импорт декоратора, который требует, чтобы пользователь был аутентифицирован
-# перед доступом к определенной view.
+# Импорт декоратора, который требует, чтобы пользователь был аутентифицирован перед доступом к определенной view.
 from django.contrib.auth.decorators import login_required
+
+# Импорт метода, для отправки сообщения пользователю
+from django.contrib import messages
 
 # Импорт метода для рендеринга шаблонов.
 from django.shortcuts import render
@@ -74,6 +76,11 @@ def cars(request):
         car_to_rent.in_rental = False
         car_to_rent.save()
 
+        messages.success(
+            request,
+    'Машина была успешно арендована, поздравляем! (Наши менеджера свяжутся с вами в ближайшее время)'
+        )
+
         return redirect('cars')
 
     if form.is_valid():
@@ -140,11 +147,9 @@ def login_view(request):
     # Обработка данных формы входа
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)
-        print(form)
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            print(username, password)
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)

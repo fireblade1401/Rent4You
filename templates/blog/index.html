@@ -460,25 +460,6 @@
     </div>
   </section>
 
-<script>
-$(document).ready(function() {
-    $("#callbackForm").on("submit", function(e) {
-        e.preventDefault();  // отмена стандартного поведения формы
-        $.ajax({
-            url: "",  // адрес для отправки данных (может быть таким же, как текущая страница)
-            type: "post",
-            data: $(this).serialize(),  // сериализация данных формы
-            success: function(response) {
-                alert("Ваша заявка была успешно отправлена, мы свяжемся с вами в ближайшее время.");
-            },
-            error: function(error) {
-                alert("Произошла ошибка, пожалуйста, попробуйте еще раз.");
-            }
-        });
-    });
-});
-</script>
-
 <section class="map_section">
     <!-- map section -->
     <div class="map_container">

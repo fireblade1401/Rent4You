@@ -1308,7 +1308,27 @@ a:focus {
     margin-top: 10px;
 }
 
+.text-center sticky-pagination {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+    background-color: white;
+}
 
+.rental-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет обертке "оборачивать" дочерние элементы на следующую строку */
+    justify-content: flex-start; /* Выравнивание элементов по началу контейнера */
+    gap: 16px; /* Расстояние между карточками */
+}
+
+.rental-card {
+    flex: 1;
+    min-width: calc(25% - 16px); /* Устанавливаем минимальную ширину, которая составляет 25% минус расстояние (gap) */
+    box-sizing: border-box; /* Учитываем padding и border в общей ширине */
+    margin-bottom: 16px; /* Отступ снизу */
+}
 
 
 
