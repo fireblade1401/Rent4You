@@ -79,7 +79,7 @@
                         <p class="card-text">
                             <strong>Год:</strong> {{ car.year }}<br>
                             <strong>Цвет:</strong> {{ car.color }}<br>
-                            <strong>Цена:</strong> {{ car.price }} KZT.
+                            <strong>Цена:</strong> {{ car.price }} ₸
                         </p>
                         <form id="rentCarForm" method="post" action="{% url 'cars' %}">
                             {% csrf_token %}

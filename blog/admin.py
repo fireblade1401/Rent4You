@@ -17,5 +17,6 @@ class CarAdmin(admin.ModelAdmin):
     list_filter = ['in_rental']
     list_editable = ['in_rental']
 
+
 admin.site.register(Car, CarAdmin)
 admin.site.register(Requests)
