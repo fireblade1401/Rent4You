@@ -32,7 +32,10 @@ def index(request):
     blogs = Blog.objects.all()
     feedbacks = FeedBacks.objects.all()
     title_slides = TitleSlider.objects.all()
-    feedback_buttons = FeedbackButtons.objects.get(id=1)
+    feedback_buttons = FeedbackButtons.objects.filter(id=1).exists()
+
+    if feedback_buttons:
+        feedback_buttons = FeedbackButtons.objects.get(id=1)
 
     if request.method == "POST":
         form = CallbackForm(request.POST)

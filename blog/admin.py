@@ -10,5 +10,12 @@ admin.site.register(Callback)
 admin.site.register(TitleSlider)
 admin.site.register(FeedbackButtons)
 admin.site.register(СarMark)
-admin.site.register(Car)
+
+
+class CarAdmin(admin.ModelAdmin):
+    list_display = ['model', 'in_rental']
+    list_filter = ['in_rental']
+    list_editable = ['in_rental']
+
+admin.site.register(Car, CarAdmin)
 admin.site.register(Requests)
